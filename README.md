@@ -36,7 +36,7 @@ As the Acrolinx Sidebar performs static code analysis to improve quality, you al
 
 https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970
 
-Open the solution file `Acrolinx.Sidebar.Net.sln` with Visual Studio.
+Open the solution file `Acrolinx.Demo.Sidebar.Net` with Visual Studio.
 
 Run the solution.
  
@@ -47,7 +47,7 @@ Visual Studio downloads the required dependencies and compiles the Acrolinx .NET
 
 ## How to Use the Sidebar in Your Integration
 
-After the Acrolinx .NET Sidebar has been compiled, you can start using it in your project: In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
+After the Acrolinx .NET Sidebar dependency has been resolved, you can start using it in your project: In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
 
 ![Choose Items](/doc/chooseitems.png)
 
@@ -104,7 +104,7 @@ To check for availability of the Acrolinx Sidebar in your Acrolinx Server instal
 
 ## License
 
-Copyright 2015-2016 Acrolinx GmbH
+Copyright 2016-2017 Acrolinx GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -81,6 +81,14 @@
     <ApplicationIcon>acrolinx.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Acrolinx.Sidebar, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acrolinx.Sidebar.1.0.0.1\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -134,6 +142,7 @@
     <EmbeddedResource Include="SimpleSample.resx">
       <DependentUpon>SimpleSample.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -146,12 +155,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Acrolinx.Sidebar\Acrolinx.Sidebar.csproj">
-      <Project>{9af2b333-9701-4d7f-af9a-e05e929712c9}</Project>
-      <Name>Acrolinx.Sidebar</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="acrolinx.ico" />
