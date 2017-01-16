@@ -1,6 +1,6 @@
 # Acrolinx .NET Sidebar Demo
 
-Demo code for an integration of the Acrolinx sidebar into a .NET application
+Demo code for an integration of the Acrolinx sidebar in a .NET application
 
 ## Prerequisites
 
@@ -10,8 +10,7 @@ After the meeting, we provide you with test server credentials and configuration
 
 ## Configuration of the Sample
 
-The Acrolinx Server checks if a connecting client is allowed to connect.  To enable this you must provide a valid client signature. 
-This can be done either by using the Visual Studio Designer (described in [How to use the Sidebar in Your Integration]) or by editing the code:
+The Acrolinx Server checks if a connecting client is allowed to connect. To connect to a server, you must provide a valid client signature by using the Visual Studio Designer (described in [How to use the Sidebar in Your Integration]) or by editing the code:
 
 In the two files:
 
@@ -30,9 +29,9 @@ with the signature provided by Acrolinx.
 
 ## How to Start
 
-First make sure that you have installed at least Microsoft Visual Studio 2015 with C# support.
+First make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
 
-As the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install Code Contracts for .NET:
+Since the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install Code Contracts for .NET:
 
 https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970
 
@@ -41,13 +40,13 @@ Open the solution file `Acrolinx.Demo.Sidebar.Net` with Visual Studio.
 Run the solution.
  
 Visual Studio downloads the required dependencies and compiles the Acrolinx .NET Sidebar solution using nuget (https://www.nuget.org/).
-(Note: The dependency download may fail the on the first build. This problem can usually be solved by building a second time.)
+(Note: The dependency download may fail on the first build. This problem can usually be solved by building a second time.)
 
 ![Screen Shot of .NET Sidebar Example](/doc/sample.png)
 
 ## How to Use the Sidebar in Your Integration
 
-After the Acrolinx .NET Sidebar dependency has been resolved, you can start using it in your project: In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
+After you resolve the Acrolinx .NET Sidebar dependency you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
 
 ![Choose Items](/doc/chooseitems.png)
 
@@ -59,7 +58,7 @@ Usually you dock (Properties->Layout->Dock->Right) the Acrolinx sidebar to the r
 
 ![Form1](/doc/form1.png)
 
-Set the client signature which you got from Acrolinx. Scroll to the Sidebar section in the properties window:
+Set the client signature which you received from Acrolinx. Scroll to the Sidebar section in the properties window:
 
 ![Signature](/doc/signature.png)
 
@@ -69,9 +68,9 @@ Somewhere in your initialization code, tell the sidebar to start:
 
 ![Start Sidebar](/doc/start.png)
 
-Run the application. If you see the Acrolinx Sidebar everything went well.
+Run the application. If you see the Acrolinx Sidebar, then everything went well.
 
-The next step is implementing the extraction and the events of the sidebar:
+The next step is to implement the extraction and the events of the sidebar:
 
 ![Events](/doc/events.png)
 
@@ -79,23 +78,21 @@ Have a look at the sample source code provided in the sample project.
 
 ## CORS, HTTPS, Servers and Sidebar Updates
 
-By default, a publicly available Acrolinx Sidebar is loaded.
+By default, this sample uses a publicly available Acrolinx Sidebar.
 
-This deploy method has several benefits:
-* It is easy set up.
-* If Acrolinx provides a bugfix you and your users benefit immediately.
+Advantages of using the sidebar hosted on a cloud server:
+* It's easy to set up.
+* If Acrolinx provides a bugfix, then you and your users benefit immediately.
 * Older Acrolinx servers do not ship with an Acrolinx Sidebar.
 
-As you know there is no free lunch ;-).
-
-The disadvantages of the public Acrolinx Sidebar are:
-* By default this sample will only connect to Acrolinx Servers using HTTPS.
+Disadvantages of using the sidebar hosted on a cloud server:
+* By default, this sample will only connect to Acrolinx Servers using HTTPS.
 * The Acrolinx Server must have CORS enabled (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing),
-* The client computer must be connected to the internet and must be able to download the public Acrolinx Sidebar.
+* The client computer must be connected to the internet and must be able to download the Acrolinx Sidebar from the cloud server.
 
-If you have been granted access to an Acrolinx test server, the public Acrolinx Sidebar works.
+If you have been granted access to an Acrolinx test server, the Acrolinx Sidebar on the cloud server will work.
 
-If you use an Acrolinx server version 4.7 or above or if you have installed the sidebar manually, you can change the `SidebarSourceLocation` property of the Acrolinx sidebar control.
+If you use an Acrolinx server version 4.7 or later, or if you have installed the sidebar manually, then you can change the `SidebarSourceLocation` property of the Acrolinx sidebar control.
 The address follows the pattern `http(s)://<hostname>:port/sidebar/v14/index.html`
 
 To check for availability of the Acrolinx Sidebar in your Acrolinx Server installation, search for it in the `www` directory. For example on Windows:
