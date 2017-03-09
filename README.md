@@ -80,7 +80,7 @@ Have a look at the sample source code provided in the sample project.
 
 * By default, this sample will only connect to Acrolinx Servers using HTTPS.
 * The Acrolinx Server must have CORS enabled (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing),
-* The client computer must be connected to the internet and must be able to download the Acrolinx Sidebar from the cloud server.
+* The client computer must be connected to the internet.
 
 If you have been granted access to an Acrolinx test server, the Acrolinx Sidebar will work out of the box.
 
