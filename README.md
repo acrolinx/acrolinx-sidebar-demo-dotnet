@@ -76,28 +76,16 @@ The next step is to implement the extraction and the events of the sidebar:
 
 Have a look at the sample source code provided in the sample project. 
 
-## CORS, HTTPS, Servers and Sidebar Updates
+## CORS, HTTPS, Servers
 
-By default, this sample uses a publicly available Acrolinx Sidebar.
-
-Advantages of using the sidebar hosted on a cloud server:
-* It's easy to set up.
-* If Acrolinx provides a bugfix, then you and your users benefit immediately.
-* Older Acrolinx servers do not ship with an Acrolinx Sidebar.
-
-Disadvantages of using the sidebar hosted on a cloud server:
 * By default, this sample will only connect to Acrolinx Servers using HTTPS.
 * The Acrolinx Server must have CORS enabled (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing),
 * The client computer must be connected to the internet and must be able to download the Acrolinx Sidebar from the cloud server.
 
-If you have been granted access to an Acrolinx test server, the Acrolinx Sidebar on the cloud server will work.
+If you have been granted access to an Acrolinx test server, the Acrolinx Sidebar will work out of the box.
 
-If you use an Acrolinx server version 4.7 or later, or if you have installed the sidebar manually, then you can change the `SidebarSourceLocation` property of the Acrolinx sidebar control.
+If you use an Acrolinx server version 4.7 or later, then you can change the `SidebarSourceLocation` property of the Acrolinx sidebar control.
 The address follows the pattern `http(s)://<hostname>:port/sidebar/v14/index.html`
-
-To check for availability of the Acrolinx Sidebar in your Acrolinx Server installation, search for it in the `www` directory. For example on Windows:
- 
-`C:\Program Files\Acrolinx\AcrolinxIQ\server\www\sidebar\v14`
 
 ## License
 
