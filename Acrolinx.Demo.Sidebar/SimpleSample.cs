@@ -14,9 +14,9 @@ using System.Windows.Forms;
 namespace Acrolinx.Demo.Sidebar
 {
     /// <summary>
-    /// This example shows the minimal effort for a POC. The whole select / replace will fail if the text was changed.
-    /// Please have a look at the properties, events and functions of the <see cref="AcrolinxSidebar"/> control.
-    /// See: <see cref="MultiSample"/> for examples how to deal with changes and multiple input fields.
+    /// This example shows the minimal effort for a POC.The select and replace functionallity will fail if the text is changed.
+    /// Please see the properties, events and functions of the <see cref="AcrolinxSidebar"/> control.
+    /// See: <see cref="MultiSample"/> for examples of how to deal with changes and multiple input fields.
     /// </summary>
     public partial class SimpleSample : Form
     {

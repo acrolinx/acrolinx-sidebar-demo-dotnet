@@ -33,6 +33,8 @@ namespace Acrolinx.Demo.Sidebar
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleSample));
             this.textBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.labelWarning = new System.Windows.Forms.Label();
+            this.labelMessage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.formatComboBox = new System.Windows.Forms.ComboBox();
             this.acrolinxSidebar = new Acrolinx.Sdk.Sidebar.AcrolinxSidebar();
@@ -42,23 +44,45 @@ namespace Acrolinx.Demo.Sidebar
             // textBox
             // 
             this.textBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox.Location = new System.Drawing.Point(0, 26);
+            this.textBox.Location = new System.Drawing.Point(0, 68);
             this.textBox.MaxLength = 0;
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox.Size = new System.Drawing.Size(576, 415);
+            this.textBox.Size = new System.Drawing.Size(608, 373);
             this.textBox.TabIndex = 1;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.labelWarning);
+            this.panel1.Controls.Add(this.labelMessage);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.formatComboBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(576, 26);
+            this.panel1.Size = new System.Drawing.Size(608, 68);
             this.panel1.TabIndex = 3;
+            // 
+            // labelWarning
+            // 
+            this.labelWarning.AutoSize = true;
+            this.labelWarning.ForeColor = System.Drawing.Color.Red;
+            this.labelWarning.Location = new System.Drawing.Point(12, 33);
+            this.labelWarning.Name = "labelWarning";
+            this.labelWarning.Size = new System.Drawing.Size(33, 13);
+            this.labelWarning.TabIndex = 6;
+            this.labelWarning.Text = "Note:";
+            // 
+            // labelMessage
+            // 
+            this.labelMessage.AutoSize = true;
+            this.labelMessage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelMessage.Location = new System.Drawing.Point(57, 33);
+            this.labelMessage.Name = "labelMessage";
+            this.labelMessage.Size = new System.Drawing.Size(546, 26);
+            this.labelMessage.TabIndex = 5;
+            this.labelMessage.Text = resources.GetString("labelMessage.Text");
             // 
             // label1
             // 
@@ -80,12 +104,14 @@ namespace Acrolinx.Demo.Sidebar
             // 
             // acrolinxSidebar
             // 
+            this.acrolinxSidebar.ClientLocale = "";
             this.acrolinxSidebar.ClientSignature = "SW50ZWdyYXRpb25EZXZlbG9wbWVudERlbW9Pbmx5";
             this.acrolinxSidebar.Dock = System.Windows.Forms.DockStyle.Right;
-            this.acrolinxSidebar.Location = new System.Drawing.Point(576, 0);
+            this.acrolinxSidebar.Location = new System.Drawing.Point(608, 0);
             this.acrolinxSidebar.MaximumSize = new System.Drawing.Size(300, 0);
             this.acrolinxSidebar.MinimumSize = new System.Drawing.Size(300, 0);
             this.acrolinxSidebar.Name = "acrolinxSidebar";
+            this.acrolinxSidebar.SidebarSourceLocation = null;
             this.acrolinxSidebar.Size = new System.Drawing.Size(300, 441);
             this.acrolinxSidebar.TabIndex = 0;
             this.acrolinxSidebar.InitFinished += new Acrolinx.Sdk.Sidebar.SidebarInitFinishedEventHandler(this.acrolinxSidebar_InitFinished);
@@ -99,7 +125,7 @@ namespace Acrolinx.Demo.Sidebar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 441);
+            this.ClientSize = new System.Drawing.Size(908, 441);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.acrolinxSidebar);
@@ -120,5 +146,7 @@ namespace Acrolinx.Demo.Sidebar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox formatComboBox;
+        private System.Windows.Forms.Label labelMessage;
+        private System.Windows.Forms.Label labelWarning;
     }
 }
