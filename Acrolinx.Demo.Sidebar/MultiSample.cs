@@ -21,13 +21,13 @@ namespace Acrolinx.Demo.Sidebar
 
         Integration integration;
 
-        public MultiSample(string serverAddress)
+        public MultiSample()
         {
             InitializeComponent();
 
             panelContent.VerticalScroll.Visible = true;
 
-            integration = new Integration(acrolinxSidebar, serverAddress);
+            integration = new Integration(acrolinxSidebar);
 
 
             integration.RegisterTitleTextBox(textBoxTitle); //Deal with plain text

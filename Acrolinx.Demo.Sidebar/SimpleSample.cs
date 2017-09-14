@@ -1,6 +1,7 @@
 ﻿/* Copyright (c) 2016 Acrolinx GmbH */
 
 using Acrolinx.Sdk.Sidebar.Documents;
+using Acrolinx.Sdk.Sidebar.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,12 +23,12 @@ namespace Acrolinx.Demo.Sidebar
     {
         private string documentReference;
 
-        public SimpleSample(string serverAddress) : this(serverAddress, Format.HTML, "your_file_name.txt", "<body>" +Environment.NewLine + "   <h1> This is a header without dot </h1>" + Environment.NewLine + "    <div>This is an simple sample tesst</div>" + Environment.NewLine + "</body>")
+        public SimpleSample() : this( Format.HTML, "your_file_name.txt", "<body>" +Environment.NewLine + "   <h1> This is a header without dot </h1>" + Environment.NewLine + "    <div>This is an simple sample tesst</div>" + Environment.NewLine + "</body>")
         {
             
         }
 
-        public SimpleSample(string serverAddress, Format format, string documentReference, string text)
+        public SimpleSample(Format format, string documentReference, string text)
         {
             InitializeComponent();
 
@@ -38,7 +39,7 @@ namespace Acrolinx.Demo.Sidebar
             this.textBox.Text = text;
             this.Text += " - " + documentReference;
 
-            acrolinxSidebar.Start(serverAddress);
+            acrolinxSidebar.Start();
         }
 
         private void FillFormatList()
@@ -51,7 +52,7 @@ namespace Acrolinx.Demo.Sidebar
 
         private void acrolinxSidebar_RequestCheck(object sender, EventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_RequestCheck");
+            Logger.AcroLog.Info("acrolinxSidebar_RequestCheck");
 
             var document = new Document();
             document.Content = textBox.Text;
@@ -62,24 +63,24 @@ namespace Acrolinx.Demo.Sidebar
 
         private void acrolinxSidebar_InitFinished(object sender, EventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_InitFinished");
+            Logger.AcroLog.Info("acrolinxSidebar_InitFinished");
         }
 
         private void acrolinxSidebar_Checked(object sender, Sdk.Sidebar.CheckedEventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_Checked");
+            Logger.AcroLog.Info("acrolinxSidebar_Checked");
         }
 
         private void acrolinxSidebar_SidebarSourceNotReachable(object sender, EventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_SidebarSourceNotReachable");
+            Logger.AcroLog.Info("acrolinxSidebar_SidebarSourceNotReachable");
 
             acrolinxSidebar.Start(); //retry
         }
 
         private void acrolinxSidebar_SelectRanges(object sender, Sdk.Sidebar.MatchesEventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_SelectRanges");
+            Logger.AcroLog.Info("acrolinxSidebar_SelectRanges");
 
             SelectWholeRange(e.CheckId, e.Matches);
         }
@@ -106,7 +107,7 @@ namespace Acrolinx.Demo.Sidebar
 
         private void acrolinxSidebar_ReplaceRanges(object sender, Sdk.Sidebar.MatchesWithReplacementEventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("acrolinxSidebar_ReplaceRanges");
+            Logger.AcroLog.Info("acrolinxSidebar_ReplaceRanges");
 
             SelectWholeRange(e.CheckId, e.Matches);
             if (textBox.SelectionLength > 0)

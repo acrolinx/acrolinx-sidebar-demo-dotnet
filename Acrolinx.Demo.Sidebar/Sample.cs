@@ -11,19 +11,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Acrolinx.Sdk.Sidebar.Documents;
-using Acrolinx.Sdk.Sidebar.Util.Configuration;
+
 
 namespace Acrolinx.Demo.Sidebar
 {
     public partial class Sample : Form
     {
         private int childFormNumber = 0;
-        private string serverAddress = null;
 
         public Sample()
         {
             InitializeComponent();
-            Acrolinx.Sdk.Sidebar.Util.Logging.Logger.LogToConsole();
         }
 
         private void ShowNewForm(object sender, EventArgs e)
@@ -103,14 +101,14 @@ namespace Acrolinx.Demo.Sidebar
 
         private void simpleSampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var simple = new SimpleSample(serverAddress);
+            var simple = new SimpleSample();
             simple.MdiParent = this;
             simple.Show();
         }
 
         private void multiSampleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var multi = new MultiSample(serverAddress);
+            var multi = new MultiSample();
             multi.MdiParent = this;
             multi.Show();
         }
@@ -131,7 +129,7 @@ namespace Acrolinx.Demo.Sidebar
             {
                 try
                 {
-                    var simple = new SimpleSample(serverAddress, getFormat(fileName), fileName, File.ReadAllText(fileName));
+                    var simple = new SimpleSample(getFormat(fileName), fileName, File.ReadAllText(fileName));
                     simple.MdiParent = this;
                     simple.Show();
                 }
@@ -157,18 +155,6 @@ namespace Acrolinx.Demo.Sidebar
                 return Format.Markdown;
             }
             return Format.Text;
-        }
-
-        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var options = new Options(serverAddress, true);
-            //Standard in integrations should be showSelectInSidebarOption = false instead of true
-
-            if (options.ShowDialog() != DialogResult.OK)
-            {
-                return;
-            }
-            serverAddress = options.ServerAddress;
         }
 
          private void Sample_DragDrop(object sender, DragEventArgs e)

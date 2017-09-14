@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Acrolinx.Sdk.Sidebar.Util.Logging;
 
 namespace Acrolinx.Demo.Sidebar
 {
@@ -20,6 +21,8 @@ namespace Acrolinx.Demo.Sidebar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            Logger.InitializeLog();
 
             Application.Run(new Sample());
         }

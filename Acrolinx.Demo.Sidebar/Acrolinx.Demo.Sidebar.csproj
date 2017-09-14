@@ -81,8 +81,12 @@
     <ApplicationIcon>acrolinx.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acrolinx.Sidebar, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acrolinx.Sidebar.1.0.0.3\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+    <Reference Include="Acrolinx.Sidebar, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acrolinx.Sidebar.1.1.0\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -158,6 +162,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="acrolinx.ico" />
+    <Content Include="Acrolinx.Sidebar.log4net.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Acrolinx.Startpage.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config.Resource.log4net.xml" />
     <None Include="Resources\loading.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

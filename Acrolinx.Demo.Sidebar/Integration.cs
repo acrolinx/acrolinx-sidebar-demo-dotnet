@@ -4,6 +4,7 @@ using Acrolinx.Sdk.Sidebar;
 using Acrolinx.Sdk.Sidebar.Documents;
 using Acrolinx.Sdk.Sidebar.Exceptions;
 using Acrolinx.Sdk.Sidebar.Util.Adapter;
+using Acrolinx.Sdk.Sidebar.Util.Logging;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
@@ -21,7 +22,7 @@ namespace Acrolinx.Demo.Sidebar
         private readonly List<UniversalAdapter> adapterList = new List<UniversalAdapter>();
         private AcrolinxSidebar sidebar;
 
-        public Integration(AcrolinxSidebar sidebar, string serverAddress)
+        public Integration(AcrolinxSidebar sidebar)
         {
             this.sidebar = sidebar;
 
@@ -47,23 +48,13 @@ namespace Acrolinx.Demo.Sidebar
             sidebar.Checked += Checked;
             sidebar.SelectRanges += SelectRanges;
             sidebar.ReplaceRanges += ReplaceRanges;
-            sidebar.SidebarSourceNotReachable += SidebarSourceNotReachable;
 
             //Set version information. This is used for support and Acrolinx Analytics.
             //sidebar.RegisterClientComponent(typeof(Integration).Assembly, "Acrolinx for " + Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.MAIN);
             //sidebar.RegisterClientComponent(Assembly.GetEntryAssembly(), Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.DEFAULT);
 
             //Start the sidebar, which connects to an Acrolinx Server.
-            sidebar.Start(serverAddress);
-        }
-
-        void SidebarSourceNotReachable(object sender, EventArgs e)
-        {
-            if (MessageBox.Show(null, "Sidebar could not be loaded from '" + sidebar.SidebarSourceLocation + "' due to connection problems. Retry?",
-                "Acrolinx", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error) == DialogResult.Retry)
-            {
-                sidebar.Start();
-            }
+            sidebar.Start();
         }
 
         public void RegisterTextBox(TextBox textBox)
@@ -90,19 +81,19 @@ namespace Acrolinx.Demo.Sidebar
 
         private void RequestCheck(object sender, EventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("RequestCheck");
+            Logger.AcroLog.Info("RequestCheck");
 
             request = new MultiAdapter("DotNetSampleXML", adapterList, Format.XML);
             request.DocumentReference = "dotnetSample/topspin.xml"; //Document reference should be set to path, uri or unique id of the current document
 
             var checkId = sidebar.Check(request.Document);
 
-            System.Diagnostics.Trace.WriteLine("Check submitted with id: " + checkId);
+            Logger.AcroLog.Debug("Check submitted with id: " + checkId);
         }
 
         private void Checked(object sender, CheckedEventArgs e)
         {
-            System.Diagnostics.Trace.WriteLine("Checked: " + e.CheckId + " from " + e.Range.Start + " to " + e.Range.End);
+            Logger.AcroLog.Debug("Checked: " + e.CheckId + " from " + e.Range.Start + " to " + e.Range.End);
 
             current = request;
         }
@@ -112,7 +103,7 @@ namespace Acrolinx.Demo.Sidebar
         {
             Contract.Requires(e.Matches.All(m => (0 <= m.Range.Start && m.Range.End <= current.Document.Content.Length)));
 
-            System.Diagnostics.Trace.WriteLine("SelectRanges: " + e.Matches);
+            Logger.AcroLog.Info("SelectRanges: " + e.Matches);
 
             try
             {
@@ -120,7 +111,7 @@ namespace Acrolinx.Demo.Sidebar
             }
             catch (Exception err)
             {
-                System.Diagnostics.Trace.WriteLine(err);
+                Logger.AcroLog.Error(err);
                 sidebar.InvalidateRanges(e.CheckId, e.Matches);
             }
         }
@@ -128,14 +119,14 @@ namespace Acrolinx.Demo.Sidebar
         private void ReplaceRanges(object sender, MatchesWithReplacementEventArgs e)
         {
             Contract.Requires(e.Matches.All(m => m.Range.Start >= 0 && m.Range.End <= current.Document.Content.Length));
-            System.Diagnostics.Trace.WriteLine("ReplaceRanges: " + e.Matches);
+            Logger.AcroLog.Info("ReplaceRanges: " + e.Matches);
             try
             {
                 current.ReplaceRanges(e.Matches);
             }
             catch (Exception err)
             {
-                System.Diagnostics.Trace.WriteLine(err);
+                Logger.AcroLog.Error(err);
                 sidebar.InvalidateRanges(e.CheckId, e.Matches);
             }
         }
