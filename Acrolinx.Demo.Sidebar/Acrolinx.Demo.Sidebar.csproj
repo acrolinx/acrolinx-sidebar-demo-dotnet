@@ -81,8 +81,8 @@
     <ApplicationIcon>acrolinx.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acrolinx.Sidebar, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acrolinx.Sidebar.1.1.0\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+    <Reference Include="Acrolinx.Sidebar, Version=1.1.0.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acrolinx.Sidebar.1.1.0.4\lib\net45\Acrolinx.Sidebar.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
@@ -146,7 +146,9 @@
     <EmbeddedResource Include="SimpleSample.resx">
       <DependentUpon>SimpleSample.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

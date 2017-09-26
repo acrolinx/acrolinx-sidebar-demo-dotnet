@@ -106,13 +106,14 @@ namespace Acrolinx.Demo.Sidebar
             // 
             this.acrolinxSidebar.ClientLocale = "";
             this.acrolinxSidebar.ClientSignature = "SW50ZWdyYXRpb25EZXZlbG9wbWVudERlbW9Pbmx5";
-            this.acrolinxSidebar.MinimumSidebarVersion = "14.4.3";
             this.acrolinxSidebar.Dock = System.Windows.Forms.DockStyle.Right;
             this.acrolinxSidebar.Location = new System.Drawing.Point(608, 0);
             this.acrolinxSidebar.MaximumSize = new System.Drawing.Size(300, 0);
+            this.acrolinxSidebar.MinimumSidebarVersion = "14.4.3";
             this.acrolinxSidebar.MinimumSize = new System.Drawing.Size(300, 0);
             this.acrolinxSidebar.Name = "acrolinxSidebar";
             this.acrolinxSidebar.Size = new System.Drawing.Size(300, 441);
+            this.acrolinxSidebar.SupportCheckSelection = true;
             this.acrolinxSidebar.TabIndex = 0;
             this.acrolinxSidebar.InitFinished += new Acrolinx.Sdk.Sidebar.SidebarInitFinishedEventHandler(this.acrolinxSidebar_InitFinished);
             this.acrolinxSidebar.SidebarSourceNotReachable += new Acrolinx.Sdk.Sidebar.SidebarSourceNotReachableEventHandler(this.acrolinxSidebar_SidebarSourceNotReachable);

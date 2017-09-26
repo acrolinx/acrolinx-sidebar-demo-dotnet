@@ -1,5 +1,6 @@
 ﻿/* Copyright (c) 2016 Acrolinx GmbH */
 
+using Acrolinx.Sdk.Sidebar;
 using Acrolinx.Sdk.Sidebar.Documents;
 using Acrolinx.Sdk.Sidebar.Util.Logging;
 using System;
@@ -50,7 +51,7 @@ namespace Acrolinx.Demo.Sidebar
             }
         }
 
-        private void acrolinxSidebar_RequestCheck(object sender, EventArgs e)
+        private void acrolinxSidebar_RequestCheck(object sender, CheckRequestedEventArgs e)
         {
             Logger.AcroLog.Info("acrolinxSidebar_RequestCheck");
 
@@ -58,7 +59,20 @@ namespace Acrolinx.Demo.Sidebar
             document.Content = textBox.Text;
             document.Format = (Format)formatComboBox.SelectedItem;
             document.Reference = documentReference;
+
+            if (e.Options.Selection)
+            {
+                document.Selections = GetSelection();
+            }
+
             acrolinxSidebar.Check(document);
+        }
+
+        private IReadOnlyList<IRange> GetSelection()
+        {
+            var selections = new List<IRange>();
+            selections.Add(new Range(textBox.SelectionStart, textBox.SelectionStart + textBox.SelectionLength));
+            return selections;
         }
 
         private void acrolinxSidebar_InitFinished(object sender, EventArgs e)
