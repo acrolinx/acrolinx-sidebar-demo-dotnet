@@ -22,8 +22,6 @@ namespace Acrolinx.Demo.Sidebar
     /// </summary>
     public partial class SimpleSample : Form
     {
-        private string documentReference;
-
         public SimpleSample() : this( Format.HTML, "your_file_name.txt", "<body>" +Environment.NewLine + "   <h1> This is a header without dot </h1>" + Environment.NewLine + "    <div>This is an simple sample tesst</div>" + Environment.NewLine + "</body>")
         {
             
@@ -36,7 +34,7 @@ namespace Acrolinx.Demo.Sidebar
             FillFormatList();
 
             formatComboBox.SelectedItem = format;
-            this.documentReference = documentReference;
+            this.documentReferenceTextBox.Text = documentReference;
             this.textBox.Text = text;
             this.Text += " - " + documentReference;
 
@@ -58,7 +56,7 @@ namespace Acrolinx.Demo.Sidebar
             var document = new Document();
             document.Content = textBox.Text;
             document.Format = (Format)formatComboBox.SelectedItem;
-            document.Reference = documentReference;
+            document.Reference = documentReferenceTextBox.Text;
 
             if (e.Options.Selection)
             {

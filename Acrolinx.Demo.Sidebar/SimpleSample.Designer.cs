@@ -33,6 +33,8 @@ namespace Acrolinx.Demo.Sidebar
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleSample));
             this.textBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.documentReferenceTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.labelWarning = new System.Windows.Forms.Label();
             this.labelMessage = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,6 +61,8 @@ namespace Acrolinx.Demo.Sidebar
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.documentReferenceTextBox);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelWarning);
             this.panel1.Controls.Add(this.labelMessage);
             this.panel1.Controls.Add(this.label1);
@@ -68,6 +72,24 @@ namespace Acrolinx.Demo.Sidebar
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(908, 68);
             this.panel1.TabIndex = 3;
+            // 
+            // documentReferenceTextBox
+            // 
+            this.documentReferenceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.documentReferenceTextBox.Location = new System.Drawing.Point(320, 3);
+            this.documentReferenceTextBox.Name = "documentReferenceTextBox";
+            this.documentReferenceTextBox.Size = new System.Drawing.Size(576, 20);
+            this.documentReferenceTextBox.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(202, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Document Reference:";
             // 
             // labelWarning
             // 
@@ -173,5 +195,7 @@ namespace Acrolinx.Demo.Sidebar
         private System.Windows.Forms.Label labelMessage;
         private System.Windows.Forms.Label labelWarning;
         private System.Windows.Forms.SplitContainer splitContainer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox documentReferenceTextBox;
     }
 }
