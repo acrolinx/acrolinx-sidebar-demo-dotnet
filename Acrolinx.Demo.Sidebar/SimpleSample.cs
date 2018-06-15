@@ -22,7 +22,7 @@ namespace Acrolinx.Demo.Sidebar
     /// </summary>
     public partial class SimpleSample : Form
     {
-        public SimpleSample() : this( Format.HTML, "your_file_name.txt", "<body>" +Environment.NewLine + "   <h1> This is a header without dot </h1>" + Environment.NewLine + "    <div>This is an simple sample tesst</div>" + Environment.NewLine + "</body>")
+        public SimpleSample() : this( Format.Auto, "your_file_name.htm", "<body>" +Environment.NewLine + "   <h1> This is a header without dot </h1>" + Environment.NewLine + "    <div>This is an simple sample tesst</div>" + Environment.NewLine + "</body>")
         {
             
         }
