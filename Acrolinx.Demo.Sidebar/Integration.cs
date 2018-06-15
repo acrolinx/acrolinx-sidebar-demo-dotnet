@@ -76,14 +76,14 @@ namespace Acrolinx.Demo.Sidebar
             adapterList.Add(new TextBoxAdapter("xml", textBox, false));
         }
 
-        private MultiAdapter current = new MultiAdapter("", new UniversalAdapter[0], Format.Text);
-        private MultiAdapter request = new MultiAdapter("", new UniversalAdapter[0], Format.Text);
+        private MultiAdapter current = new MultiAdapter("", new UniversalAdapter[0], Format.Auto);
+        private MultiAdapter request = new MultiAdapter("", new UniversalAdapter[0], Format.Auto);
 
         private void RequestCheck(object sender, EventArgs e)
         {
             Logger.AcroLog.Info("RequestCheck");
 
-            request = new MultiAdapter("DotNetSampleXML", adapterList, Format.XML);
+            request = new MultiAdapter("DotNetSampleXML", adapterList, Format.Auto);
             request.DocumentReference = "dotnetSample/topspin.xml"; //Document reference should be set to path, uri or unique id of the current document
 
             var checkId = sidebar.Check(request.Document);

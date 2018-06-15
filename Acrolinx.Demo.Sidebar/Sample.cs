@@ -129,7 +129,7 @@ namespace Acrolinx.Demo.Sidebar
             {
                 try
                 {
-                    var simple = new SimpleSample(getFormat(fileName), fileName, File.ReadAllText(fileName));
+                    var simple = new SimpleSample(Format.Auto, fileName, File.ReadAllText(fileName));
                     simple.MdiParent = this;
                     simple.Show();
                 }
@@ -140,24 +140,7 @@ namespace Acrolinx.Demo.Sidebar
             }
         }
 
-        private Format getFormat(string fileName)
-        {
-            if (fileName.ToLower().EndsWith(".htm") || fileName.ToLower().EndsWith(".html"))
-            {
-                return Format.HTML;
-            }
-            if (fileName.ToLower().EndsWith(".xml") || fileName.ToLower().EndsWith(".xhtml") || fileName.ToLower().EndsWith(".ditamap") || fileName.ToLower().EndsWith(".dita"))
-            {
-                return Format.XML;
-            }
-            if (fileName.ToLower().EndsWith(".md") || fileName.ToLower().EndsWith(".markdown"))
-            {
-                return Format.Markdown;
-            }
-            return Format.Text;
-        }
-
-         private void Sample_DragDrop(object sender, DragEventArgs e)
+        private void Sample_DragDrop(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(DataFormats.FileDrop))
             {
