@@ -30,9 +30,9 @@ namespace Acrolinx.Demo.Sidebar
             //This requires that you configure CORS on your Acrolinx Server.
             //Add cors.allowedOrigins=* to your coreserver.properties.
             //See: https://en.wikipedia.org/wiki/Cross-origin_resource_sharing
-            //If the sidebar is loaded from a host using https it is only allowed to talk to Acrolinx Servers which run with SSL.
+            //If the Sidebar is loaded from a host using https it is only allowed to talk to Acrolinx Servers which run with SSL.
 
-            //Each Acrolinx Server installation >= 4.7 ships its own version of the sidebar.
+            //Each Acrolinx Server installation >= 4.7 ships its own version of the Sidebar.
             //This allows you to talk to the server without configuring CORS.
             //Ensure the SidebarSourceLocation uses the same host as ServerAddress.
             //Ensure the external name of the Acrolinx Server equals the host name you are talking to.
@@ -53,7 +53,7 @@ namespace Acrolinx.Demo.Sidebar
             //sidebar.RegisterClientComponent(typeof(Integration).Assembly, "Acrolinx for " + Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.MAIN);
             //sidebar.RegisterClientComponent(Assembly.GetEntryAssembly(), Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.DEFAULT);
 
-            //Start the sidebar, which connects to an Acrolinx Server.
+            //Start the Sidebar, which connects to an Acrolinx Server.
             sidebar.Start();
         }
 
