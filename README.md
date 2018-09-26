@@ -36,7 +36,7 @@ Before you start developing your own integration, you might benefit from looking
 
 ## Run Locally
 
-1. First make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
+1. Make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
 2. Since the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install [Code Contracts for .NET](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970).
 3. Open the solution file [`Acrolinx.Demo.Sidebar.Net.sln`](Acrolinx.Demo.Sidebar.Net.sln) with Visual Studio.
 4. Run the solution.
