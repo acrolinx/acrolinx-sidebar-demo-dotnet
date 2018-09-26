@@ -85,7 +85,7 @@ To configure the Sidebar, use the properties window:
 ## SDK Features
 
 1. **Document Model** - Provides [lookup](https://github.com/acrolinx/acrolinx-coding-guidance/blob/master/topics/text-lookup.md "Lookup") functionality.
-2. **Start page** - Provides interactive way to sign in to Acrolinx with built in error handling.
+2. **Start page** - Provides interactive way to sign in to Acrolinx with built-in error handling.
 3. **Logger** - Provides [logging](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Util/Logging/Logger.cs) using Log4net.
 4. **Acrolinx Storage**: Applications using the IE web browser control may be denied to access LocalStorage.
    The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs) mechanism using Windows registry.
