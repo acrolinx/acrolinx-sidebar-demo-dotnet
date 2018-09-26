@@ -49,18 +49,19 @@ Visual Studio downloads the required dependencies and compiles the Acrolinx .NET
 
 ## Using the SDK
 
-1. After you resolve the Acrolinx .NET Sidebar dependency, you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
+1. Use the [Acrolinx Sidebar .NET SDK NuGet package](https://www.nuget.org/packages/Acrolinx.Sidebar/) as dependency.
+2. After you resolve the Acrolinx .NET Sidebar dependency, you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
   ![Choose Items](/doc/chooseitems.png)
 
-2. You should be able to drag and drop the Acrolinx Sidebar to your form:
+3. You should be able to drag and drop the Acrolinx Sidebar to your form:
 
    ![Toolbox](/doc/toolbox.png)
 
-3. Usually you dock (`Properties`->`Layout`->`Dock`->`Right`) the Acrolinx Sidebar to the right side of your form or some child panel:
+4. Usually you dock (`Properties`->`Layout`->`Dock`->`Right`) the Acrolinx Sidebar to the right side of your form or some child panel:
 
    ![Form1](/doc/form1.png)
 
-4. Somewhere in your initialization code, tell the Sidebar to start:
+5. Somewhere in your initialization code, tell the Sidebar to start:
 
    ```csharp
    acrolinxSidebar1.Start();
@@ -68,9 +69,9 @@ Visual Studio downloads the required dependencies and compiles the Acrolinx .NET
 
    ![Start Sidebar](/doc/start.png)
 
-5. Run the application. If you see the Acrolinx Sidebar, then everything went well.
+6. Run the application. If you see the Acrolinx Sidebar, then everything went well.
 
-6. The next step is to implement the extraction and the events of the Sidebar:
+7. The next step is to implement the extraction and the events of the Sidebar:
 
 ![Events](/doc/events.png)
 
