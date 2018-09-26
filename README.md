@@ -1,101 +1,111 @@
 # Acrolinx .NET Sidebar Demo
 
-Demo code for an integration of the Acrolinx Sidebar in a .NET application
+This is a showcase for integrating the [Acrolinx](http://www.acrolinx.com/) Sidebar into a .NET application.
+
+See: [Getting Started with Custom Integrations](https://support.acrolinx.com/hc/en-us/articles/205687652-Getting-Started-with-Custom-Integrations)
+
+## Live Demo
+
+[Acrolinx Sidebar Web Live Demo](https://acrolinx.github.io/acrolinx-sidebar-demo/samples/index.html)
+
+## The Acrolinx Sidebar
+
+The Acrolinx Sidebar is designed to show up beside the window where you edit your content.
+You use it for checking, reviewing, and correcting your content.
+To get an impression what the Sidebar looks like in existing integrations, have a look at
+[Get Started With the Sidebar](https://support.acrolinx.com/hc/en-us/articles/205697451-Get-Started-With-the-Sidebar).
 
 ## Prerequisites
 
-Please contact Acrolinx SDK support (sdk-support@acrolinx.com) for initial consulting. 
-We like to schedule a kickoff meeting to answer any questions about your integration project. 
-After the meeting, we provide you with test server credentials and configuration settings you need to get started.
+Please contact [Acrolinx SDK support](https://github.com/acrolinx/acrolinx-coding-guidance/blob/master/topics/sdk-support.md)
+for consulting and getting your integration certified.
+This sample works with a test license on an internal Acrolinx URL.
+This license is only meant for demonstration and developing purposes.
+Once you finished your integration, you'll have to get a license for your integration from Acrolinx.
+  
+Acrolinx offers different other SDKs, and examples for developing integrations.
 
-## Configuration of the Sample
+Before you start developing your own integration, you might benefit from looking into:
 
-The Acrolinx Server checks if a connecting client is allowed to connect. To connect to a server, you must provide a valid client signature by using the Visual Studio Designer (described in [How to use the Sidebar in Your Integration]) or by editing the code:
+* [Getting Started with Custom Integrations](https://support.acrolinx.com/hc/en-us/articles/205687652-Getting-Started-with-Custom-Integrations),
+* the [Guidance for the Development of Acrolinx Integrations](https://github.com/acrolinx/acrolinx-coding-guidance),
+* the [Acrolinx SDKs](https://github.com/acrolinx?q=sdk), and
+* the [Acrolinx Demo Projects](https://github.com/acrolinx?q=demo).
 
-In the two files:
+## Getting Started
 
-* `Acrolinx.Demo.Sidebar\MultiSample.Designer.cs`
-* `Acrolinx.Demo.Sidebar\SimpleSample.Designer.cs`
+## Run Locally
 
-find the line:
+1. First make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
+2. Since the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install [Code Contracts for .NET](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970).
+3. Open the solution file [`Acrolinx.Demo.Sidebar.Net.sln`](Acrolinx.Demo.Sidebar.Net.sln) with Visual Studio.
+4. Run the solution.
 
-	// acrolinxSidebar
+Visual Studio downloads the required dependencies and compiles the Acrolinx .NET Sidebar Demo solution using [NuGet](https://www.nuget.org/).
 
-and add the following line:
+*Note: The dependency download may fail on the first build. This problem can usually be solved by building a second time.*
 
-	this.acrolinxSidebar.ClientSignature = "";
+![Screenshot of .NET Sidebar Example](/doc/sample.png)
 
-with the signature provided by Acrolinx.
+## Using the SDK
 
-## How to Start
+1. After you resolve the Acrolinx .NET Sidebar dependency, you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
+  ![Choose Items](/doc/chooseitems.png)
 
-First make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
+2. You should be able to drag and drop the Acrolinx Sidebar to your form:
 
-Since the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install Code Contracts for .NET:
+   ![Toolbox](/doc/toolbox.png)
 
-https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970
+3. Usually you dock (`Properties`->`Layout`->`Dock`->`Right`) the Acrolinx Sidebar to the right side of your form or some child panel:
 
-Open the solution file `Acrolinx.Demo.Sidebar.Net` with Visual Studio.
+   ![Form1](/doc/form1.png)
 
-Run the solution.
- 
-Visual Studio downloads the required dependencies and compiles the Acrolinx .NET Sidebar solution using NuGet (https://www.nuget.org/).
-(Note: The dependency download may fail on the first build. This problem can usually be solved by building a second time.)
+4. Somewhere in your initialization code, tell the Sidebar to start:
 
-![Screen Shot of .NET Sidebar Example](/doc/sample.png)
+   ```csharp
+   acrolinxSidebar1.Start();
+   ```
 
-## How to Use the Sidebar in Your Integration
+   ![Start Sidebar](/doc/start.png)
 
-After you resolve the Acrolinx .NET Sidebar dependency you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
+5. Run the application. If you see the Acrolinx Sidebar, then everything went well.
 
-![Choose Items](/doc/chooseitems.png)
-
-You should be able to drag and drop the Acrolinx Sidebar to your form:
-
-![Toolbox](/doc/toolbox.png)
-
-Usually you dock (Properties->Layout->Dock->Right) the Acrolinx Sidebar to the right side of your form or some child panel:
-
-![Form1](/doc/form1.png)
-
-Set the client signature which you received from Acrolinx. Scroll to the Sidebar section in the properties window:
-
-![Signature](/doc/signature.png)
-
-Somewhere in your initialization code, tell the Sidebar to start:
-
-	acrolinxSidebar1.Start();
-
-![Start Sidebar](/doc/start.png)
-
-Run the application. If you see the Acrolinx Sidebar, then everything went well.
-
-The next step is to implement the extraction and the events of the Sidebar:
+6. The next step is to implement the extraction and the events of the Sidebar:
 
 ![Events](/doc/events.png)
 
-Have a look at the sample source code provided in the sample project. 
+Have a look at the sample source code provided in the sample project.
 
-## CORS, HTTPS, Servers
+### Configuration
 
-* By default, this sample will only connect to Acrolinx Servers using HTTPS.
-* The Acrolinx Server must have CORS enabled (https://en.wikipedia.org/wiki/Cross-origin_resource_sharing),
-* The client computer must be connected to the internet.
+To configure the Sidebar, use the properties window:
 
-If you have been granted access to an Acrolinx test server, the Acrolinx Sidebar will work out of the box.
+![Properties Window](/doc/signature.png)
 
-If you use an Acrolinx server version 4.7 or later, then you can change the `SidebarSourceLocation` property of the Acrolinx Sidebar control.
-The address follows the pattern `http(s)://<hostname>:port/sidebar/v14/index.html`
+## SDK Features
+
+1. **Document Model** - Provides [lookup](https://github.com/acrolinx/acrolinx-coding-guidance/blob/master/topics/text-lookup.md "Lookup") functionality.
+2. **Start page** - Provides interactive way to sign in to Acrolinx with built in error handling.
+3. **Logger** - Provides [logging](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Util/Logging/Logger.cs) using Log4net.
+4. **Acrolinx Storage**: Applications using the IE web browser control may be denied to access LocalStorage.
+   The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs) mechanism using Windows registry.
+   **Registry path**: `HKCU\Software\Acrolinx\Plugins\Storage\[KEY]`
+   **Fallback path**: `HKLM\Software\Acrolinx\Plugins\Storage\[KEY]`
+
+## References
+
+* This DEMO is built on the [Sidebar SDK .NET](https://github.com/acrolinx/sidebar-sdk-dotnet).
+* The Sidebar SDKs are based on the [Acrolinx Sidebar Interface](https://acrolinx.github.io/sidebar-sdk-js/).
 
 ## License
 
-Copyright 2016-2017 Acrolinx GmbH
+Copyright 2016-present Acrolinx GmbH
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+You may obtain a copy of the License at:
 
-http://www.apache.org/licenses/LICENSE-2.0
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -103,4 +113,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-For more information visit: http://www.acrolinx.com
+For more information visit: [http://www.acrolinx.com](http://www.acrolinx.com)
