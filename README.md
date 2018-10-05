@@ -37,7 +37,8 @@ Before you start developing your own integration, you might benefit from looking
 ## Run Locally
 
 1. Make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
-2. Since the Acrolinx Sidebar performs static code analysis to improve quality, you also have to install [Code Contracts for .NET](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970).
+2. Since the Acrolinx Sidebar performs static code analysis to improve quality,
+   you also have to install [Code Contracts for .NET](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970).
 3. Open the solution file [`Acrolinx.Demo.Sidebar.Net.sln`](Acrolinx.Demo.Sidebar.Net.sln) with Visual Studio.
 4. Run the solution.
 
@@ -50,14 +51,17 @@ Visual Studio downloads the required dependencies and compiles the Acrolinx .NET
 ## Using the SDK
 
 1. Use the [Acrolinx Sidebar .NET SDK NuGet package](https://www.nuget.org/packages/Acrolinx.Sidebar/) as dependency.
-2. After you resolve the Acrolinx .NET Sidebar dependency, you can start using it in your project. In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll` using the "Choose Items" function of the Toolbox:
-  ![Choose Items](/doc/chooseitems.png)
+2. After you resolve the Acrolinx .NET Sidebar dependency, you can start using it in your project.
+   In the Designer View of your form, reference the file `Acrolinx.Sidebar.dll`
+   using the "Choose Items" function of the Toolbox:
+   ![Choose Items](/doc/chooseitems.png)
 
 3. You should be able to drag and drop the Acrolinx Sidebar to your form:
 
    ![Toolbox](/doc/toolbox.png)
 
-4. Usually you dock (`Properties`->`Layout`->`Dock`->`Right`) the Acrolinx Sidebar to the right side of your form or some child panel:
+4. Usually you dock (`Properties`->`Layout`->`Dock`->`Right`) the Acrolinx Sidebar
+   to the right side of your form or some child panel:
 
    ![Form1](/doc/form1.png)
 
@@ -87,11 +91,13 @@ To configure the Sidebar, use the properties window:
 
 1. Provides [lookup](https://github.com/acrolinx/acrolinx-coding-guidance/blob/master/topics/text-lookup.md) functionality.
 2. **Start page**: Provides interactive way to sign in to Acrolinx with built-in error handling.
-3. **Logger**: Provides [logging](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Util/Logging/Logger.cs) using Log4net.
+3. **Logger**: Provides [logging](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Util/Logging/Logger.cs)
+   using Log4net.
 4. **Acrolinx Storage**: Applications using the IE web browser control may be denied to access LocalStorage.
-   The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs) mechanism using Windows registry.
-   **Registry path**: `HKCU\Software\Acrolinx\Plugins\Storage\[KEY]`
-   **Fallback path**: `HKLM\Software\Acrolinx\Plugins\Storage\[KEY]`
+   The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs)
+   mechanism using Windows registry:
+   + **Registry path**: `HKCU\Software\Acrolinx\Plugins\Storage\[KEY]`
+   + **Fallback path**: `HKLM\Software\Acrolinx\Plugins\Storage\[KEY]`
 
 ## References
 
