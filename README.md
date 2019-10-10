@@ -102,7 +102,7 @@ To configure the Sidebar, use the properties window:
 ## References
 
 * This DEMO is built on the [Sidebar SDK .NET](https://github.com/acrolinx/sidebar-sdk-dotnet).
-* The Sidebar SDKs are based on the [Acrolinx Sidebar Interface](https://acrolinx.github.io/sidebar-sdk-js/).
+* The Sidebar SDKs are based on the [Acrolinx Sidebar Interface](https://acrolinx.github.io/sidebar-interface/).
 
 ## License
 
