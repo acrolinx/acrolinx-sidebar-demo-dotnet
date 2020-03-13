@@ -81,8 +81,16 @@
     <ApplicationIcon>acrolinx.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Acrolinx.Sidebar, Version=1.1.0.16, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Acrolinx.Sidebar.1.1.0.16\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+    <Reference Include="Acrolinx.Sidebar, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Acrolinx.Sidebar.1.1.1\lib\net45\Acrolinx.Sidebar.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Diff.Match.Patch, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Diff.Match.Patch.2.1.0\lib\net45\Diff.Match.Patch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="FSharp.Core, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\FSharp.Core.3.1.2.5\lib\net40\FSharp.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
