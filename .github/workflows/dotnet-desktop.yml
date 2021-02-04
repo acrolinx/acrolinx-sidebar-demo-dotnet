@@ -78,7 +78,7 @@ jobs:
         run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
 
       - name: create zip
-        run: zip --junk-paths sidebar-demo-dotnet.zip ./Acrolinx.Demo.Sidebar/bin/Release/*
+        run: powershell Compress-Archive ./Acrolinx.Demo.Sidebar/bin/Release/* sidebar-demo-dotnet.zip
 
       - name: Create Release
         id: create_release
