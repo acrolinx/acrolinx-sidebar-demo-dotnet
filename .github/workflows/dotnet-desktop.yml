@@ -40,9 +40,12 @@ name: .NET Core Desktop
 
 on:
   push:
+    branches: [master]
     # Sequence of patterns matched against refs/tags
     tags:
       - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+  schedule:
+    - cron:  '* 12 * * *'
 
 
 jobs:
@@ -87,6 +90,12 @@ jobs:
       - name: tree
         run: tree
 
+  release:
+    runs-on:
+      windows-latest
+    needs: build
+    if: startWith(github.ref,'refs/tags/v')
+    steps:
       - name: create zip
         run: powershell Compress-Archive .\Acrolinx.Demo.Sidebar\bin\Release\* sidebar-demo-dotnet.zip
 
