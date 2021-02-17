@@ -8,3 +8,4 @@ packages
 /acrolinx-sidebar-demo-dotnet.userprefs
 .vs
 sidebar-demo-dotnet.zip
+.sonarqube
