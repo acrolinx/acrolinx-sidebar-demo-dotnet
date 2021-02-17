@@ -104,6 +104,8 @@ jobs:
         run: msbuild $env:Solution_Name /p:Configuration=Release
 
       - name: end sonar
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: sonar-msbuild\SonarScanner.MSBuild.exe end
 
       - name: tree
