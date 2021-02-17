@@ -107,7 +107,7 @@ jobs:
         path: ./Release/
 
     - name: create zip
-      run: bash zip sidebar-demo-dotnet.zip ./Release/*
+      run: zip sidebar-demo-dotnet.zip ./Release/*
 
     - name: Create Release
       id: create_release
