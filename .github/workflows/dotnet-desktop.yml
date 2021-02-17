@@ -94,7 +94,7 @@ jobs:
     runs-on:
       windows-latest
     needs: build
-    if: startWith(github.ref,'refs/tags/v')
+    if: startsWith(github.ref,'refs/tags/v')
     steps:
       - name: create zip
         run: powershell Compress-Archive .\Acrolinx.Demo.Sidebar\bin\Release\* sidebar-demo-dotnet.zip
