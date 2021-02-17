@@ -20,7 +20,7 @@ namespace Acrolinx.Demo.Sidebar
     class Integration
     {
         private readonly List<UniversalAdapter> adapterList = new List<UniversalAdapter>();
-        private AcrolinxSidebar sidebar;
+        private readonly AcrolinxSidebar sidebar;
 
         public Integration(AcrolinxSidebar sidebar)
         {
