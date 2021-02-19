@@ -92,6 +92,11 @@ jobs:
         with:
           java-version: 1.11
 
+      - name: Set version from tag name
+        if: startsWith(github.ref,'refs/tags/v')
+        shell: powershell
+        run: .\patch-assembly.ps1
+
       - name: begin sonar
         run: sonar-msbuild\SonarScanner.MSBuild.exe begin /o:"acrolinx" /k:"acrolinx_acrolinx-sidebar-demo-dotnet" /d:sonar.host.url="https://sonarcloud.io"
 
