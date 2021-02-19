@@ -8,6 +8,8 @@ See: [Getting Started with Custom Integrations](https://docs.acrolinx.com/custom
 
 [Acrolinx Sidebar Web Live Demo](https://acrolinx.github.io/acrolinx-sidebar-demo/samples/index.html)
 
+A downloadable build of the .NET Sidebar Sample can be found in the [release section](https://github.com/acrolinx/acrolinx-sidebar-demo-dotnet/releases).
+
 ## The Acrolinx Sidebar
 
 The Acrolinx Sidebar is designed to show up beside the window where you edit your content.
