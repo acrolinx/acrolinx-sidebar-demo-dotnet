@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Acrolinx.Demo.Sidebar", "Acrolinx.Demo.Sidebar\Acrolinx.Demo.Sidebar.csproj", "{41FA1FDD-2E94-45D4-808F-DC8E611F3DEE}"
 EndProject
@@ -18,5 +18,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5EEDE01A-D53F-4BEA-989A-F058405F63E6}
 	EndGlobalSection
 EndGlobal
