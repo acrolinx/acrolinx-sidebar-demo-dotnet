@@ -175,7 +175,7 @@ namespace Acrolinx.Demo.Sidebar
             this.acrolinxSidebar.ClientSignature = "SW50ZWdyYXRpb25EZXZlbG9wbWVudERlbW9Pbmx5";
             this.acrolinxSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acrolinxSidebar.Location = new System.Drawing.Point(0, 0);
-            this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(5);
             this.acrolinxSidebar.MinimumSidebarVersion = "14.4.3";
             this.acrolinxSidebar.Name = "acrolinxSidebar";
             this.acrolinxSidebar.Size = new System.Drawing.Size(382, 459);
