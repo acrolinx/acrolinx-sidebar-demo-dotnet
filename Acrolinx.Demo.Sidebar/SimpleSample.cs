@@ -50,7 +50,7 @@ namespace Acrolinx.Demo.Sidebar
             }
         }
 
-        private void acrolinxSidebar_RequestCheck(object sender, CheckRequestedEventArgs e)
+        private async void acrolinxSidebar_RequestCheck(object sender, CheckRequestedEventArgs e)
         {
             Logger.AcroLog.Info("acrolinxSidebar_RequestCheck");
 
@@ -64,7 +64,7 @@ namespace Acrolinx.Demo.Sidebar
                 document.Selections = GetSelection();
             }
 
-            acrolinxSidebar.Check(document);
+            await acrolinxSidebar.Check(document);
         }
 
         private IReadOnlyList<IRange> GetSelection()
@@ -84,11 +84,11 @@ namespace Acrolinx.Demo.Sidebar
             Logger.AcroLog.Info("acrolinxSidebar_Checked");
         }
 
-        private void acrolinxSidebar_SidebarSourceNotReachable(object sender, EventArgs e)
+        private async void acrolinxSidebar_SidebarSourceNotReachable(object sender, EventArgs e)
         {
             Logger.AcroLog.Info("acrolinxSidebar_SidebarSourceNotReachable");
 
-            acrolinxSidebar.Start(); //retry
+            await acrolinxSidebar.Start(); //retry
         }
 
         private void acrolinxSidebar_SelectRanges(object sender, Sdk.Sidebar.MatchesEventArgs e)

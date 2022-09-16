@@ -141,13 +141,17 @@ namespace Acrolinx.Demo.Sidebar
             // 
             // acrolinxSidebar
             // 
+            this.acrolinxSidebar.ClientLocale = "";
             this.acrolinxSidebar.ClientSignature = "SW50ZWdyYXRpb25EZXZlbG9wbWVudERlbW9Pbmx5";
             this.acrolinxSidebar.Dock = System.Windows.Forms.DockStyle.Right;
             this.acrolinxSidebar.Location = new System.Drawing.Point(816, 0);
+            this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.acrolinxSidebar.MaximumSize = new System.Drawing.Size(300, 0);
+            this.acrolinxSidebar.MinimumSidebarVersion = "14.5.0";
             this.acrolinxSidebar.MinimumSize = new System.Drawing.Size(300, 0);
             this.acrolinxSidebar.Name = "acrolinxSidebar";
             this.acrolinxSidebar.Size = new System.Drawing.Size(300, 513);
+            this.acrolinxSidebar.SupportCheckSelection = false;
             this.acrolinxSidebar.TabIndex = 2;
             // 
             // MultiSample
@@ -160,6 +164,7 @@ namespace Acrolinx.Demo.Sidebar
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MultiSample";
             this.Text = "Acrolinx Sidebar .NET Multi";
+            this.Load += new System.EventHandler(this.MultiSample_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

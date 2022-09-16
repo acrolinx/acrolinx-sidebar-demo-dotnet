@@ -29,7 +29,6 @@ namespace Acrolinx.Demo.Sidebar
 
             integration = new Integration(acrolinxSidebar);
 
-
             integration.RegisterTitleTextBox(textBoxTitle); //Deal with plain text
             integration.RegisterXmlTextBox(textBoxPlainXML); //Deal with xml content
 
@@ -37,8 +36,6 @@ namespace Acrolinx.Demo.Sidebar
             {
                 addTextSnippet();
             }
-
-
         }
 
          private void addTextSnippetToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,5 +61,10 @@ namespace Acrolinx.Demo.Sidebar
 
              integration.RegisterTextBox(newTextBox);
          }
+
+        private async void MultiSample_Load(object sender, EventArgs e)
+        {
+           await integration.Start();
+        }
     }
 }
