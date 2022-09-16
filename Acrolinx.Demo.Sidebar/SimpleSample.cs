@@ -38,8 +38,9 @@ namespace Acrolinx.Demo.Sidebar
             this.textBox.Text = text;
             this.Text += " - " + documentReference;
 
-            acrolinxSidebar.Start();
         }
+
+        
 
         private void FillFormatList()
         {
@@ -126,6 +127,11 @@ namespace Acrolinx.Demo.Sidebar
             {
                 textBox.SelectedText = string.Join("", e.Matches.Select(m => m.Replacement));
             }
+        }
+
+        private async void SimpleSample_Load(object sender, EventArgs e)
+        {
+           await  acrolinxSidebar.Start();
         }
     }
 }
