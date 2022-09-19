@@ -133,5 +133,11 @@ namespace Acrolinx.Demo.Sidebar
         {
            await  acrolinxSidebar.Start();
         }
+
+        private async void showMessage_Click(object sender, EventArgs e)
+        {
+            var message = new Sdk.Sidebar.Util.Message.Message(Sdk.Sidebar.Util.Message.MessageType.Warning, "Sample Message", "This is sample message!");
+            await acrolinxSidebar.ShowMessage(message);
+        }
     }
 }

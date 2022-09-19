@@ -33,6 +33,7 @@ namespace Acrolinx.Demo.Sidebar
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleSample));
             this.textBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.showMessage = new System.Windows.Forms.Button();
             this.documentReferenceTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.labelWarning = new System.Windows.Forms.Label();
@@ -62,6 +63,7 @@ namespace Acrolinx.Demo.Sidebar
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.showMessage);
             this.panel1.Controls.Add(this.documentReferenceTextBox);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelWarning);
@@ -74,6 +76,17 @@ namespace Acrolinx.Demo.Sidebar
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1211, 84);
             this.panel1.TabIndex = 3;
+            // 
+            // showMessage
+            // 
+            this.showMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.showMessage.Location = new System.Drawing.Point(829, 41);
+            this.showMessage.Name = "showMessage";
+            this.showMessage.Size = new System.Drawing.Size(195, 32);
+            this.showMessage.TabIndex = 9;
+            this.showMessage.Text = "Show Message Demo";
+            this.showMessage.UseVisualStyleBackColor = true;
+            this.showMessage.Click += new System.EventHandler(this.showMessage_Click);
             // 
             // documentReferenceTextBox
             // 
@@ -162,7 +175,7 @@ namespace Acrolinx.Demo.Sidebar
             this.acrolinxSidebar.ClientSignature = "SW50ZWdyYXRpb25EZXZlbG9wbWVudERlbW9Pbmx5";
             this.acrolinxSidebar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.acrolinxSidebar.Location = new System.Drawing.Point(0, 0);
-            this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(5);
+            this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.acrolinxSidebar.MinimumSidebarVersion = "14.4.3";
             this.acrolinxSidebar.Name = "acrolinxSidebar";
             this.acrolinxSidebar.Size = new System.Drawing.Size(382, 459);
@@ -211,5 +224,6 @@ namespace Acrolinx.Demo.Sidebar
         private System.Windows.Forms.SplitContainer splitContainer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox documentReferenceTextBox;
+        private System.Windows.Forms.Button showMessage;
     }
 }
