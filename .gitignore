@@ -10,3 +10,6 @@ packages
 sidebar-demo-dotnet.zip
 .sonarqube
 download
+
+# Eclipse
+.project
