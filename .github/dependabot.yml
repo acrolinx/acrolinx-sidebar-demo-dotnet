@@ -7,7 +7,7 @@ updates:
     reviewers:
       - abhijeetnarvekar
   - package-ecosystem: "nuget"
-    directory: "/"
+    directory: "/Acrolinx.Demo.Sidebar/"
     schedule:
       interval: "daily"
     reviewers:
