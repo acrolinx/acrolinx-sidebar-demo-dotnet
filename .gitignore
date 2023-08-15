@@ -10,4 +10,7 @@ packages
 sidebar-demo-dotnet.zip
 .sonarqube
 download
-/Acrolinx.Demo.Sidebar/runtimes
+
+# Eclipse
+.project
+Acrolinx.Demo.Sidebar/runtimes/
