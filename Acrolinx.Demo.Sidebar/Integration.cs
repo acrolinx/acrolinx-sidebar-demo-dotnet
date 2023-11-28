@@ -36,8 +36,7 @@ namespace Acrolinx.Demo.Sidebar
             //This allows you to talk to the server without configuring CORS.
             //Ensure the SidebarSourceLocation uses the same host as ServerAddress.
             //Ensure the external name of the Acrolinx Server equals the host name you are talking to.
-            //sidebar.SidebarSourceLocation = "http://yourlocalserver:8031/sidebar/v14/index.html";
-            //sidebar.ServerAddress = "http://yourlocalserver:8031";
+            //sidebar.ServerAddress = "https://company.acrolinx.cloud";
             //sidebar.ShowServerSelector = false;
             //Make sure to call sidebar.Start() instead of sidebar.Start(serverAddress), if you uncomment one of these options.
 
@@ -52,9 +51,12 @@ namespace Acrolinx.Demo.Sidebar
             //Set version information. This is used for support and Acrolinx Analytics.
             //sidebar.RegisterClientComponent(typeof(Integration).Assembly, "Acrolinx for " + Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.MAIN);
             //sidebar.RegisterClientComponent(Assembly.GetEntryAssembly(), Application.ProductName, AcrolinxSidebar.SoftwareComponentCategory.DEFAULT);
+        }
 
+        public async Task Start()
+        {
             //Start the Sidebar, which connects to an Acrolinx Server.
-            sidebar.Start();
+            await sidebar.Start();
         }
 
         public void RegisterTextBox(TextBox textBox)
@@ -79,14 +81,14 @@ namespace Acrolinx.Demo.Sidebar
         private MultiAdapter current = new MultiAdapter("", new UniversalAdapter[0], Format.Auto);
         private MultiAdapter request = new MultiAdapter("", new UniversalAdapter[0], Format.Auto);
 
-        private void RequestCheck(object sender, EventArgs e)
+        private async void RequestCheck(object sender, EventArgs e)
         {
             Logger.AcroLog.Info("RequestCheck");
 
             request = new MultiAdapter("DotNetSampleXML", adapterList, Format.Auto);
             request.DocumentReference = "dotnetSample/topspin.xml"; //Document reference should be set to path, uri or unique id of the current document
 
-            var checkId = sidebar.Check(request.Document);
+            var checkId = await sidebar.Check(request.Document);
 
             Logger.AcroLog.Debug("Check submitted with id: " + checkId);
         }
@@ -99,7 +101,7 @@ namespace Acrolinx.Demo.Sidebar
         }
 
 
-        private void SelectRanges(object sender, MatchesEventArgs e)
+        private async void SelectRanges(object sender, MatchesEventArgs e)
         {
             Contract.Requires(e.Matches.All(m => (0 <= m.Range.Start && m.Range.End <= current.Document.Content.Length)));
 
@@ -112,11 +114,11 @@ namespace Acrolinx.Demo.Sidebar
             catch (Exception err)
             {
                 Logger.AcroLog.Error(err);
-                sidebar.InvalidateRanges(e.CheckId, e.Matches);
+                await sidebar.InvalidateRanges(e.CheckId, e.Matches);
             }
         }
 
-        private void ReplaceRanges(object sender, MatchesWithReplacementEventArgs e)
+        private async void ReplaceRanges(object sender, MatchesWithReplacementEventArgs e)
         {
             Contract.Requires(e.Matches.All(m => m.Range.Start >= 0 && m.Range.End <= current.Document.Content.Length));
             Logger.AcroLog.Info("ReplaceRanges: " + e.Matches);
@@ -127,7 +129,7 @@ namespace Acrolinx.Demo.Sidebar
             catch (Exception err)
             {
                 Logger.AcroLog.Error(err);
-                sidebar.InvalidateRanges(e.CheckId, e.Matches);
+                await sidebar.InvalidateRanges(e.CheckId, e.Matches);
             }
         }
     }
