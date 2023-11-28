@@ -19,10 +19,11 @@ jobs:
 
     env:
       Solution_Name: Acrolinx.Demo.Sidebar.Net.sln
+      NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -37,7 +38,7 @@ jobs:
 
       # Install the .NET Core workload
       - name: Install .NET Core
-        uses: actions/setup-dotnet@v2
+        uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 5.0.x
 
@@ -47,14 +48,15 @@ jobs:
 
       # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
       - name: Setup MSBuild.exe
-        uses: microsoft/setup-msbuild@2008f912f56e61277eefaac6d1888b750582aa16
+        uses: microsoft/setup-msbuild@3404ff3d40458f8d1fdf55c2bcc442b970404ad7
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
-      - name: Set up JDK 11 - required by sonar
-        uses: actions/setup-java@v1
+      - name: Setup Java - required by sonar
+        uses: actions/setup-java@v3
         with:
-          java-version: 1.11
+          java-version: '17'
+          distribution: 'temurin'
 
       - name: Set version from tag name
         if: startsWith(github.ref,'refs/tags/v')
@@ -63,7 +65,6 @@ jobs:
 
       - name: begin sonar
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: sonar-msbuild\SonarScanner.MSBuild.exe begin /o:"acrolinx" /k:"acrolinx_acrolinx-sidebar-demo-dotnet" /d:sonar.token=$env:SONAR_TOKEN /d:sonar.host.url="https://sonarcloud.io"
 
@@ -77,7 +78,6 @@ jobs:
 
       - name: end sonar
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: sonar-msbuild\SonarScanner.MSBuild.exe end /d:sonar.token=$env:SONAR_TOKEN
 

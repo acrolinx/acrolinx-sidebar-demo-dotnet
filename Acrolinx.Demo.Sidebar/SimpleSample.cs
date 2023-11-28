@@ -38,8 +38,9 @@ namespace Acrolinx.Demo.Sidebar
             this.textBox.Text = text;
             this.Text += " - " + documentReference;
 
-            acrolinxSidebar.Start();
         }
+
+        
 
         private void FillFormatList()
         {
@@ -49,7 +50,7 @@ namespace Acrolinx.Demo.Sidebar
             }
         }
 
-        private void acrolinxSidebar_RequestCheck(object sender, CheckRequestedEventArgs e)
+        private async void acrolinxSidebar_RequestCheck(object sender, CheckRequestedEventArgs e)
         {
             Logger.AcroLog.Info("acrolinxSidebar_RequestCheck");
 
@@ -63,7 +64,7 @@ namespace Acrolinx.Demo.Sidebar
                 document.Selections = GetSelection();
             }
 
-            acrolinxSidebar.Check(document);
+            await acrolinxSidebar.Check(document);
         }
 
         private IReadOnlyList<IRange> GetSelection()
@@ -83,11 +84,11 @@ namespace Acrolinx.Demo.Sidebar
             Logger.AcroLog.Info("acrolinxSidebar_Checked");
         }
 
-        private void acrolinxSidebar_SidebarSourceNotReachable(object sender, EventArgs e)
+        private async void acrolinxSidebar_SidebarSourceNotReachable(object sender, EventArgs e)
         {
             Logger.AcroLog.Info("acrolinxSidebar_SidebarSourceNotReachable");
 
-            acrolinxSidebar.Start(); //retry
+            await acrolinxSidebar.Start(); //retry
         }
 
         private void acrolinxSidebar_SelectRanges(object sender, Sdk.Sidebar.MatchesEventArgs e)
@@ -126,6 +127,19 @@ namespace Acrolinx.Demo.Sidebar
             {
                 textBox.SelectedText = string.Join("", e.Matches.Select(m => m.Replacement));
             }
+        }
+
+        // Acrolinx Sidebar works asynchronously with webview2.
+        // Acrolinx Sidebar can be used only after initilization is complete.
+        private async void SimpleSample_Load(object sender, EventArgs e)
+        {
+           await acrolinxSidebar.Start();
+        }
+
+        private async void showMessage_Click(object sender, EventArgs e)
+        {
+            var message = new Sdk.Sidebar.Util.Message.Message(Sdk.Sidebar.Util.Message.MessageType.Warning, "Sample Message", "This is sample message!");
+            await acrolinxSidebar.ShowMessage(message);
         }
     }
 }
