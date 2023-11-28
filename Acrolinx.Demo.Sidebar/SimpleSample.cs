@@ -129,9 +129,11 @@ namespace Acrolinx.Demo.Sidebar
             }
         }
 
+        // Acrolinx Sidebar works asynchronously with webview2.
+        // Acrolinx Sidebar can be used only after initilization is complete.
         private async void SimpleSample_Load(object sender, EventArgs e)
         {
-           await  acrolinxSidebar.Start();
+           await acrolinxSidebar.Start();
         }
 
         private async void showMessage_Click(object sender, EventArgs e)

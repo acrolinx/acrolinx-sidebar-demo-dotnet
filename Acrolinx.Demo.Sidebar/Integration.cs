@@ -36,8 +36,7 @@ namespace Acrolinx.Demo.Sidebar
             //This allows you to talk to the server without configuring CORS.
             //Ensure the SidebarSourceLocation uses the same host as ServerAddress.
             //Ensure the external name of the Acrolinx Server equals the host name you are talking to.
-            //sidebar.SidebarSourceLocation = "http://yourlocalserver:8031/sidebar/v14/index.html";
-            //sidebar.ServerAddress = "http://yourlocalserver:8031";
+            //sidebar.ServerAddress = "https://company.acrolinx.cloud";
             //sidebar.ShowServerSelector = false;
             //Make sure to call sidebar.Start() instead of sidebar.Start(serverAddress), if you uncomment one of these options.
 
