@@ -34,11 +34,21 @@ Before you start developing your own integration, you might benefit from looking
 * the [Acrolinx SDKs](https://github.com/acrolinx?q=sdk), and
 * the [Acrolinx Demo Projects](https://github.com/acrolinx?q=demo).
 
+## Requirements
+
+The SDK uses Microsoft Web View 2 as browser control to render the Sidebar.
+
+WebView 2 comes preinstalled with Windows 11 and above.
+
+Windows 10 and 7 users are recommended to install WebVew 2 evergreen installer from Microsoft.
+
+Link to download evergreen installer for webview 2 from Microsoft: https://developer.microsoft.com/en-us/microsoft-edge/webview2/ 
+
 ## Getting Started
 
 ## Run Locally
 
-1. Make sure that you have installed Microsoft Visual Studio with C# support version 2015 or later.
+1. Make sure that you have installed Microsoft Visual Studio with C# support version 2019 or later.
 2. Since the Acrolinx Sidebar performs static code analysis to improve quality,
    you also have to install [Code Contracts for .NET](https://visualstudiogallery.msdn.microsoft.com/1ec7db13-3363-46c9-851f-1ce455f66970).
 3. Open the solution file [`Acrolinx.Demo.Sidebar.Net.sln`](Acrolinx.Demo.Sidebar.Net.sln) with Visual Studio.
@@ -70,10 +80,12 @@ Visual Studio downloads the required dependencies and compiles the Acrolinx .NET
 5. Somewhere in your initialization code, tell the Sidebar to start:
 
    ```csharp
-   acrolinxSidebar1.Start();
+   await acrolinxSidebar1.Start();
    ```
 
    ![Start Sidebar](/doc/start.png)
+
+   As the Sidebar uses Microsoft's WebView 2 control, which is asynchronous in nature, make sure you handle asynchronous code by appropriately using async/await keywords.
 
 6. Run the application. If you see the Acrolinx Sidebar, then everything went well.
 
@@ -95,8 +107,7 @@ To configure the Sidebar, use the properties window:
 2. **Start page**: Provides an interactive way to sign in to Acrolinx with built-in error handling.
 3. **Logger**: Provides [logging](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Util/Logging/Logger.cs)
    using Log4net.
-4. **Acrolinx Storage**: Applications using the Internet Explorer web browser control may be denied to access LocalStorage.
-   The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs)
+4. **Acrolinx Storage**: The SDK uses its own [storage](https://github.com/acrolinx/sidebar-sdk-dotnet/blob/master/Acrolinx.Sidebar/Storage/RegistryAcrolinxStorage.cs)
    mechanism using the Windows registry:
    + **Registry path**: `HKCU\Software\Acrolinx\Plugins\Storage\[KEY]`
    + **Fallback path**: `HKLM\Software\Acrolinx\Plugins\Storage\[KEY]`
