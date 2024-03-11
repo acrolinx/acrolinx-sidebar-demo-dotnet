@@ -103,6 +103,6 @@ jobs:
         run: zip sidebar-demo-dotnet.zip ./Release/*
       
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: ./sidebar-demo-dotnet.zip
