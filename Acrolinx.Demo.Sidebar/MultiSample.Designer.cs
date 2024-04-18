@@ -147,7 +147,6 @@ namespace Acrolinx.Demo.Sidebar
             this.acrolinxSidebar.Location = new System.Drawing.Point(816, 0);
             this.acrolinxSidebar.Margin = new System.Windows.Forms.Padding(4);
             this.acrolinxSidebar.MaximumSize = new System.Drawing.Size(300, 0);
-            this.acrolinxSidebar.MinimumSidebarVersion = "14.5.0";
             this.acrolinxSidebar.MinimumSize = new System.Drawing.Size(300, 0);
             this.acrolinxSidebar.Name = "acrolinxSidebar";
             this.acrolinxSidebar.Size = new System.Drawing.Size(300, 513);
