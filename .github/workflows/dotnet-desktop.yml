@@ -3,9 +3,8 @@ name: .NET Core Desktop
 on:
   push:
     branches: [main]
-    # Sequence of patterns matched against refs/tags
     tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+      - "v*"
   pull_request:
     branches: [main]
   schedule:
@@ -13,10 +12,7 @@ on:
 
 jobs:
   build:
-    runs-on:
-      windows-2019 # For a list of available runner types, refer to
-      # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
+    runs-on: windows-latest
     env:
       Solution_Name: Acrolinx.Demo.Sidebar.Net.sln
       NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -36,7 +32,6 @@ jobs:
       - name: extract sonar
         run: powershell Expand-Archive .\download\sonarmsbuild.zip .\sonar-msbuild\
 
-      # Install the .NET Core workload
       - name: Install .NET Core
         uses: actions/setup-dotnet@v4
         with:
@@ -46,7 +41,6 @@ jobs:
         uses: nuget/setup-nuget@v2
       - run: nuget restore $env:Solution_Name
 
-      # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@v2
         env:
@@ -101,7 +95,7 @@ jobs:
 
       - name: create zip
         run: zip sidebar-demo-dotnet.zip ./Release/*
-      
+
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
