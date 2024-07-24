@@ -68,12 +68,3 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: sonar-msbuild\SonarScanner.MSBuild.exe end /d:sonar.token=$env:SONAR_TOKEN
-
-      - name: tree
-        run: tree
-
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: Acrolinx.Demo.Sidebar\bin\Release\
