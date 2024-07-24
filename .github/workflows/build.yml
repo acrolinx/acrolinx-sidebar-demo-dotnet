@@ -1,12 +1,8 @@
-name: .NET Core Desktop
+name: Build
 
 on:
   push:
-    branches: [main]
-    tags:
-      - "v*"
   pull_request:
-    branches: [main]
   schedule:
     - cron: "0 2 * * *"
   workflow_dispatch:
@@ -73,31 +69,3 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARCLOUD_TOKEN }}
         run: sonar-msbuild\SonarScanner.MSBuild.exe end /d:sonar.token=$env:SONAR_TOKEN
-
-      - name: tree
-        run: tree
-
-      - name: upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-artifact
-          path: Acrolinx.Demo.Sidebar\bin\Release\
-
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    if: startsWith(github.ref,'refs/tags/v')
-    steps:
-      - name: download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: build-artifact
-          path: Release/
-
-      - name: create zip
-        run: zip sidebar-demo-dotnet.zip Release/*
-
-      - name: Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: sidebar-demo-dotnet.zip
