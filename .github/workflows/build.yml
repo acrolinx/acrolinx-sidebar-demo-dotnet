@@ -12,6 +12,7 @@ jobs:
     runs-on: windows-latest
     env:
       Solution_Name: Acrolinx.Demo.Sidebar.Net.sln
+      NUGET_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Checkout
