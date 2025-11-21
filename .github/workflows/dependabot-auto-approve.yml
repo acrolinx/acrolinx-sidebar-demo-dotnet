@@ -7,7 +7,7 @@ permissions:
 jobs:
   dependabot:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'acrolinx-sidebar-demo-dotnet'
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.repository == 'acrolinx/acrolinx-sidebar-demo-dotnet'
     steps:
       - name: Dependabot metadata
         id: metadata
